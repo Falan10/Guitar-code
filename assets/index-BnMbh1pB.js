@@ -3775,12 +3775,13 @@ This typically indicates that your device does not have a healthy Internet conne
           height: 32px;
           border-radius: 4px;
           font-size: 0.8rem;
+          margin-top: 5px; /* 少し押し下げる */
         }
 
         .expand-btn {
           position: absolute;
           left: 10px;
-          top: 15px;
+          top: 65px; /* ヘッダーの下付近に移動 */
           z-index: 100;
           background: var(--primary-color);
           color: #000;
