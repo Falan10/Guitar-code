@@ -3682,6 +3682,21 @@ This typically indicates that your device does not have a healthy Internet conne
           width: 100%;
           cursor: pointer;
         }
+
+        @media (max-width: 600px) {
+          .control-panel {
+            flex-direction: column;
+            gap: 1rem;
+            padding: 0 1rem;
+          }
+          .speed-control {
+            min-width: 100%;
+          }
+          .ctrl-btn.main {
+            width: 120px;
+            font-size: 0.9rem;
+          }
+        }
       `})]})}function WV({user:t}){const e=async()=>{try{await YC(Nf,jV)}catch(r){console.error("Login failed",r),alert("ログインに失敗しました。Firebase ConsoleでGoogle Authを有効にし、ドメインを承認しているか確認してください。")}},n=()=>{window.confirm("ログアウトしますか？")&&xC(Nf)};return B.jsxs("div",{className:"auth-area",children:[t?B.jsxs("div",{className:"user-profile",children:[B.jsx("img",{src:t.photoURL,alt:t.displayName,className:"user-avatar"}),B.jsxs("div",{className:"user-info",children:[B.jsx("span",{className:"user-name",children:t.displayName}),B.jsx("button",{className:"auth-btn logout",onClick:n,children:"ログアウト"})]})]}):B.jsx("button",{className:"auth-btn login",onClick:e,children:"Googleでログイン"}),B.jsx("style",{jsx:!0,children:`
         .auth-area {
           padding: 1rem;
@@ -3736,6 +3751,7 @@ This typically indicates that your device does not have a healthy Internet conne
         .app-container {
           display: flex;
           height: 100vh;
+          height: 100dvh; /* Mobile browser support */
           width: 100vw;
           background-color: var(--bg-color);
           overflow: hidden;
@@ -3878,5 +3894,38 @@ This typically indicates that your device does not have a healthy Internet conne
           border: 1px solid var(--secondary-color);
           color: var(--secondary-color);
           border-radius: 4px;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+          .sidebar {
+            position: absolute;
+            height: 100%;
+            z-index: 1000;
+            box-shadow: 10px 0 30px rgba(0,0,0,0.8);
+          }
+          
+          .main-content {
+             width: 100vw;
+          }
+
+          .app-header {
+            padding-left: 3rem; /* Expand btn space */
+          }
+
+          .controls-area {
+            flex-direction: column;
+            height: auto;
+            min-height: 160px; /* 少し高さを確保 */
+            padding: 1rem 0 calc(1.5rem + env(safe-area-inset-bottom)); /* 下部に余裕を持たせる */
+            gap: 0.75rem;
+          }
+
+          .bpm-sync-panel {
+            position: static;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+          }
         }
       `})]})}rd.createRoot(document.getElementById("root")).render(B.jsx(QS.StrictMode,{children:B.jsx(YV,{})}));
